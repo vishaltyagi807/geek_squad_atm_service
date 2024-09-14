@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_glow/flutter_glow.dart';
 import 'package:geek_squad_atm_service/api/current_lang.dart';
 import 'package:geek_squad_atm_service/api/service.dart';
 import 'package:geek_squad_atm_service/core/presentation/app/app.dart';
