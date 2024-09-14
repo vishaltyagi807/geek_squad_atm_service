@@ -1,0 +1,69 @@
+name: geek_squad_atm_service
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_glow: ^0.3.2
+  cupertino_icons: ^1.0.8
+  synchronized_keyboard_listener: ^0.1.0
+  media_kit: ^1.1.11
+  media_kit_libs_audio: ^1.0.5
+  media_kit_libs_windows_audio: any
+  window_manager: ^0.4.2
+  number2words: ^0.0.5
+  get: ^4.6.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^4.0.0
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/images/bn/
+    - assets/images/en/
+    - assets/images/hi/
+    - assets/images/te/
+    - assets/images/common/
+    - assets/Bengali/
+    - assets/English/
+    - assets/Hindi/
+    - assets/Telugu/
+    - assets/Numbers/Bengali/
+    - assets/Numbers/English/
+    - assets/Numbers/Hindi/
+    - assets/Numbers/Telugu/
+    - assets/currency/bn/
+    - assets/currency/hi/
+    - assets/currency/te/
+    - assets/currency/en/
+    - assets/nums/en/
+    - assets/nums/bn/
+    - assets/nums/hi/
+    - assets/nums/te/
+    - assets/strings/te/
+    - assets/strings/bn/
+    - assets/strings/hi/
+    - assets/strings/en/
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
