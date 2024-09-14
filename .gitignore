@@ -10,6 +10,11 @@
 .svn/
 migrate_working_dir/
 
+# custom
+android/
+ios/
+web/
+
 # IntelliJ related
 *.iml
 *.ipr
