@@ -25,40 +25,41 @@ class _CardInsertionState extends State<CardInsertion> {
   }
 
   void init() async {
-    selected = false;
+    if (selected) return;
     switch (CurrentLanguage.currentLang) {
       case Lang.EN:
         await SpeakService.speak(EnglishSound
             .hii_welcome_to_geek_squad_atm_service_please_insert_your_card_the_card_slot_is_at_your_left_side_en);
-        if (!selected) {
+        if (!selected && Get.currentRoute == Pages.CARD_INSERTION_SCREEN) {
           await SpeakService.speak(EnglishSound.press_zero_to_repeat_en);
         }
         break;
       case Lang.HI:
         await SpeakService.speak(HindiSound
             .hii_welcome_to_geek_squad_atm_service_please_insert_your_card_the_card_slot_is_at_your_left_side_hi);
-        if (!selected) {
+        if (!selected && Get.currentRoute == Pages.CARD_INSERTION_SCREEN) {
           await SpeakService.speak(HindiSound.press_zero_to_repeat_hi);
         }
         break;
       case Lang.TE:
         await SpeakService.speak(TeluguSound
             .hii_welcome_to_geek_squad_atm_service_please_insert_your_card_the_card_slot_is_at_your_left_side_te);
-        if (!selected) {
+        if (!selected && Get.currentRoute == Pages.CARD_INSERTION_SCREEN) {
           await SpeakService.speak(TeluguSound.press_zero_to_repeat);
         }
         break;
       case Lang.BN:
         await SpeakService.speak(BengaliSounds
             .hii_welcome_to_geek_squad_atm_service_please_insert_your_card_the_card_slot_is_at_your_left_side_bn);
-        if (!selected) {
+        if (!selected && Get.currentRoute == Pages.CARD_INSERTION_SCREEN) {
           await SpeakService.speak(BengaliSounds.press_zero_to_repeat);
         }
         break;
     }
   }
 
-  void navigate() {
+  void navigate() async {
+    await Future.delayed(Duration(seconds: 1));
     Get.toNamed(Pages.WELCOME_SCREEN);
   }
 
@@ -118,6 +119,8 @@ class _CardInsertionState extends State<CardInsertion> {
               break;
           }
         },
+        LogicalKeyboardKey.digit0: init,
+        LogicalKeyboardKey.numpad0: init,
       },
       child: Scaffold(
         body: Image.asset(

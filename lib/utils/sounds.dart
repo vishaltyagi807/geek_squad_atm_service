@@ -204,7 +204,9 @@ class TeluguSound {
   TeluguSound._();
 
   static String get enter_new_pin_te => "assets/Telugu/enter_new_pin_te.mp3";
-  static String get are_you_sure_to_continue_te => "assets/Telugu/are_you_sure_to_continue_te.mp3";
+
+  static String get are_you_sure_to_continue_te =>
+      "assets/Telugu/are_you_sure_to_continue_te.mp3";
 
   static String get you_entered_te => "assets/Telugu/you_entered_te.mp3";
 
@@ -260,8 +262,8 @@ class TeluguSound {
       "assets/Telugu/please_enter_old_pin_te.mp3";
 
   static String
-      get please_enter_one_for_pin_change_or_update_enter_two_to_know_your_balance_enter_three_for_mini_statement_enter_four_for_cash_withdrawal_or_press_zero_to_repeat_te =>
-          "assets/Telugu/please_enter_one_for_pin_change_or_update_enter_two_to_know_your_balance_enter_three_for_mini_statement_enter_four_for_cash_withdrawal_or_press_zero_to_repeat_te.mp3";
+      get main_menu_te =>
+          "assets/Telugu/main_menu_te.mp3";
 
   static String get please_enter_pin_to_confirm_te =>
       "assets/Telugu/please_enter_pin_to_confirm_te.mp3";
@@ -336,7 +338,9 @@ class HindiSound {
   HindiSound._();
 
   static String get enter_new_pin_hi => "assets/Hindi/enter_new_pin_hi.mp3";
-  static String get are_you_sure_to_continue_hi => "assets/Hindi/are_you_sure_to_continue_hi.mp3";
+
+  static String get are_you_sure_to_continue_hi =>
+      "assets/Hindi/are_you_sure_to_continue_hi.mp3";
 
   static String get you_entered_hi => "assets/Hindi/you_entered_hi.mp3";
 
@@ -389,8 +393,8 @@ class HindiSound {
       "assets/Hindi/please_enter_old_pin_hi.mp3";
 
   static String
-      get please_enter_one_for_pin_change_or_update_enter_two_to_know_your_balance_enter_three_for_mini_statement_enter_four_for_cash_withdrawal_or_press_zero_to_repeat_hi =>
-          "assets/Hindi/please_enter_one_for_pin_change_or_update_enter_two_to_know_your_balance_enter_three_for_mini_statement_enter_four_for_cash_withdrawal_or_press_zero_to_repeat_hi.mp3";
+      get main_menu_hi =>
+          "assets/Hindi/main_menu_hi.mp3";
 
   static String get please_enter_pin_to_confirm_hi =>
       "assets/Hindi/please_enter_pin_to_confirm_hi.mp3";
@@ -468,7 +472,9 @@ class EnglishSound {
   EnglishSound._();
 
   static String get you_entered_en => "assets/English/you_entered_en.mp3";
-  static String get are_you_sure_to_continue_en => "assets/English/are_you_sure_to_continue_en.mp3";
+
+  static String get are_you_sure_to_continue_en =>
+      "assets/English/are_you_sure_to_continue_en.mp3";
 
   static String get you_entered_wrong_pin_en =>
       "assets/English/you_entered_wrong_pin_en.mp3";
@@ -527,8 +533,8 @@ class EnglishSound {
       "assets/English/please_enter_old_pin_en.mp3";
 
   static String
-      get please_enter_one_for_pin_change_or_update_enter_two_to_know_your_balance_enter_three_for_mini_statement_enter_four_for_cash_withdrawal_or_press_zero_to_repeat_en =>
-          "assets/English/please_enter_one_for_pin_change_or_update_enter_two_to_know_your_balance_enter_three_for_mini_statement_enter_four_for_cash_withdrawal_or_press_zero_to_repeat_en.mp3";
+      get main_menu_en =>
+          "assets/English/main_menu_en.mp3";
 
   static String get please_enter_pin_to_confirm_en =>
       "assets/English/please_enter_pin_to_confirm_en.mp3";
@@ -665,8 +671,8 @@ class BengaliSounds {
       "assets/Bengali/please_enter_old_pin_bn.mp3";
 
   static String
-      get please_enter_one_for_pin_change_or_update_enter_two_to_know_your_balance_enter_three_for_mini_statement_enter_four_for_cash_withdrawal_or_press_zero_to_repeat_bn =>
-          "assets/Bengali/please_enter_one_for_pin_change_or_update_enter_two_to_know_your_balance_enter_three_for_mini_statement_enter_four_for_cash_withdrawal_or_press_zero_to_repeat_bn.mp3";
+      get main_menu_bn =>
+          "assets/Bengali/main_menu_bn.mp3";
 
   static String get please_enter_pin_to_confirm_bn =>
       "assets/Bengali/please_enter_pin_to_confirm_bn.mp3";

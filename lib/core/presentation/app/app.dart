@@ -1,7 +1,11 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:geek_squad_atm_service/core/routes/pages.dart';
 import 'package:geek_squad_atm_service/core/routes/routes.dart';
 import 'package:get/get.dart';
+import 'package:stop_watch_timer/stop_watch_timer.dart';
 
 import '../../../api/service.dart';
 
@@ -15,26 +19,80 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
+  late StopWatchTimer stopWatchTimer;
+  Timer? _longPressTimer;
+  Duration _longPressDuration = Duration(seconds: 3);
+
   @override
   void initState() {
     super.initState();
+    _focusNode.requestFocus();
     SpeakService.speak(
         "assets/English/geek_squad_atm_service_has_been_started.mp3");
+    stopWatchTimer = StopWatchTimer(
+      presetMillisecond: 1000 * 60 * 5,
+      isLapHours: false,
+      mode: StopWatchMode.countDown,
+      onEnded: () {
+        if (Get.currentRoute == Pages.SPLASH_SCREEN) return;
+        stopWatchTimer.onResetTimer();
+        Get.offAllNamed(Pages.SPLASH_SCREEN);
+      },
+    );
+    stopWatchTimer.onStartTimer();
+  }
+
+  final _focusNode = FocusNode();
+
+  void _handleKeyDown(RawKeyEvent event) {
+    if (_longPressTimer == null) {
+      _longPressTimer = Timer(_longPressDuration, () {
+        Get.offAllNamed(Pages.SPLASH_SCREEN);
+        stopWatchTimer.onResetTimer();
+        stopWatchTimer.onStartTimer();
+      });
+    }
+  }
+
+  void _handleKeyUp(RawKeyEvent event) {
+    _cancelLongPress();
+  }
+
+  void _cancelLongPress() {
+    if (_longPressTimer != null) {
+      _longPressTimer!.cancel();
+      _longPressTimer = null;
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    return MouseRegion(
-      cursor: SystemMouseCursors.none,
-      child: GetMaterialApp(
-        title: "Geek Squad -- ATM Service",
-        theme: ThemeData(
-          scaffoldBackgroundColor: Colors.white,
-          primaryColor: primaryColor,
+    return RawKeyboardListener(
+      autofocus: true,
+      focusNode: _focusNode,
+      onKey: (event) {
+        if (event is RawKeyDownEvent &&
+            event.logicalKey == LogicalKeyboardKey.escape) {
+          _handleKeyDown(event);
+        } else if (event is RawKeyUpEvent &&
+            event.logicalKey == LogicalKeyboardKey.escape) {
+          _handleKeyUp(event);
+        }
+        stopWatchTimer.onResetTimer();
+        stopWatchTimer.onStartTimer();
+      },
+      child: MouseRegion(
+        cursor: SystemMouseCursors.none,
+        child: GetMaterialApp(
+          title: "Geek Squad -- ATM Service",
+          theme: ThemeData(
+            scaffoldBackgroundColor: Colors.white,
+            primaryColor: primaryColor,
+          ),
+          debugShowCheckedModeBanner: false,
+          getPages: Routes.routes,
+          initialRoute: Pages.SPLASH_SCREEN,
         ),
-        debugShowCheckedModeBanner: false,
-        getPages: Routes.routes,
-        initialRoute: Pages.SPLASH_SCREEN,
       ),
     );
   }

@@ -10,13 +10,14 @@ typedef MP3FilePath = String;
 
 class SpeakService {
   SpeakService._() {
-    hii();
+    audioDeviceSetup();
   }
 
   static late AudioDevice _speaker;
   static late AudioDevice _headphone;
 
-  static void hii() {
+  static void audioDeviceSetup() {
+    _player.setAudioDevice(AudioDevice.auto());
     _player.stream.audioDevices.listen((event) {
       List<AudioDevice> devices = event;
       for (var item in devices) {
@@ -67,16 +68,16 @@ class SpeakService {
       try {
         switch (lang) {
           case Lang.EN:
-            medias.add(Media(NumSounds.en[item] ?? ""));
+            medias.add(Media(("asset:///" + NumSounds.en[item].toString())));
             break;
           case Lang.HI:
-            medias.add(Media(NumSounds.hi[item] ?? ""));
+            medias.add(Media(("asset:///" + NumSounds.hi[item].toString())));
             break;
           case Lang.TE:
-            medias.add(Media(NumSounds.te[item] ?? ""));
+            medias.add(Media(("asset:///" + NumSounds.te[item].toString())));
             break;
           case Lang.BN:
-            medias.add(Media(NumSounds.bn[item] ?? ""));
+            medias.add(Media(("asset:///" + NumSounds.bn[item].toString())));
             break;
         }
       } catch (e) {
@@ -98,8 +99,8 @@ class SpeakService {
 
   static Future<void> reset() async {
     try {
-      await _player.setAudioDevice(AudioDevice.auto());
       await _player.stop();
+      await _player.setAudioDevice(AudioDevice.auto());
     } catch (e) {
       debugPrint(e.toString());
     }
@@ -107,12 +108,13 @@ class SpeakService {
 
   static Future<void> speak(String text, {bool isNumber = false}) async {
     try {
+      if (isNumber && !enabled) return;
       if (isNumber) {
         _player.setRate(1.5);
       } else {
         _player.setRate(1);
       }
-      await _player.open(Media(text));
+      await _player.open(Media("asset:///" + text));
       await Future.delayed(await _player.stream.duration.first);
     } catch (e) {
       debugPrint(e.toString());

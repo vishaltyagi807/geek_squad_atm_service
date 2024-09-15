@@ -352,7 +352,8 @@ class _EnterPinState extends State<EnterPin> {
                 child: OutlinedButton(
                   style: OutlinedButton.styleFrom(
                     backgroundColor: Colors.transparent,
-                    padding: const EdgeInsets.only(top: 15, left: 20, right: 20),
+                    padding:
+                        const EdgeInsets.only(top: 15, left: 20, right: 20),
                     side: const BorderSide(color: primaryColor, width: 5),
                     elevation: 30,
                     minimumSize: const Size(280, 65),

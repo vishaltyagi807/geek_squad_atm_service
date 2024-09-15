@@ -29,20 +29,16 @@ class _MainMenuState extends State<MainMenu> {
     selected = false;
     switch (CurrentLanguage.currentLang) {
       case Lang.EN:
-        SpeakService.speak(EnglishSound
-            .please_enter_one_for_pin_change_or_update_enter_two_to_know_your_balance_enter_three_for_mini_statement_enter_four_for_cash_withdrawal_or_press_zero_to_repeat_en);
+        SpeakService.speak(EnglishSound.main_menu_en);
         break;
       case Lang.HI:
-        SpeakService.speak(HindiSound
-            .please_enter_one_for_pin_change_or_update_enter_two_to_know_your_balance_enter_three_for_mini_statement_enter_four_for_cash_withdrawal_or_press_zero_to_repeat_hi);
+        SpeakService.speak(HindiSound.main_menu_hi);
         break;
       case Lang.TE:
-        SpeakService.speak(TeluguSound
-            .please_enter_one_for_pin_change_or_update_enter_two_to_know_your_balance_enter_three_for_mini_statement_enter_four_for_cash_withdrawal_or_press_zero_to_repeat_te);
+        SpeakService.speak(TeluguSound.main_menu_te);
         break;
       case Lang.BN:
-        SpeakService.speak(BengaliSounds
-            .please_enter_one_for_pin_change_or_update_enter_two_to_know_your_balance_enter_three_for_mini_statement_enter_four_for_cash_withdrawal_or_press_zero_to_repeat_bn);
+        SpeakService.speak(BengaliSounds.main_menu_bn);
         break;
     }
   }

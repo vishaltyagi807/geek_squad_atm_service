@@ -25,22 +25,28 @@ class _ThankYouState extends State<ThankYou> {
       case Lang.EN:
         await SpeakService.speak(EnglishSound
             .thank_you_for_using_our_atm_service_hope_you_have_a_good_day_en);
+        await Future.delayed(const Duration(seconds: 2));
+        Get.offAllNamed(Pages.SPLASH_SCREEN);
         break;
       case Lang.HI:
         await SpeakService.speak(HindiSound
             .thank_you_for_using_our_atm_service_hope_you_have_a_good_day_hi);
+        await Future.delayed(const Duration(seconds: 2));
+        Get.offAllNamed(Pages.SPLASH_SCREEN);
         break;
       case Lang.TE:
         await SpeakService.speak(TeluguSound
             .thank_you_for_using_our_atm_service_hope_you_have_a_good_day_te);
+        await Future.delayed(const Duration(seconds: 2));
+        Get.offAllNamed(Pages.SPLASH_SCREEN);
         break;
       case Lang.BN:
         await SpeakService.speak(BengaliSounds
             .thank_you_for_using_our_atm_service_hope_you_have_a_good_day_bn);
+        await Future.delayed(const Duration(seconds: 2));
+        Get.offAllNamed(Pages.SPLASH_SCREEN);
         break;
     }
-    await Future.delayed(const Duration(seconds: 5));
-    Get.offAllNamed(Pages.SPLASH_SCREEN);
   }
 
   @override

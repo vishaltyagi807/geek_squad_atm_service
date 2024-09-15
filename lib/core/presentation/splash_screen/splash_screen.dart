@@ -19,13 +19,14 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     CurrentLanguage.currentLang = Lang.EN;
     _focusNode.requestFocus();
+    SpeakService.reset();
   }
 
   final _focusNode = FocusNode();
 
   @override
   Widget build(BuildContext context) {
-    SpeakService.hii();
+    SpeakService.audioDeviceSetup();
     return KeyboardListener(
       onKeyEvent: (e) {
         if (e is KeyDownEvent) {

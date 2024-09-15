@@ -30,25 +30,25 @@ class _WelcomeState extends State<Welcome> {
     switch (CurrentLanguage.currentLang) {
       case Lang.EN:
         await SpeakService.speak(EnglishSound.press_one_for_special_user);
-        if (!selected) {
+        if (!selected && Get.currentRoute == Pages.WELCOME_SCREEN) {
           await SpeakService.speak(EnglishSound.press_two_for_normal_user);
         }
         break;
       case Lang.HI:
         await SpeakService.speak(HindiSound.press_one_for_special_user);
-        if (!selected) {
+        if (!selected && Get.currentRoute == Pages.WELCOME_SCREEN) {
           await SpeakService.speak(HindiSound.press_two_for_normal_user);
         }
         break;
       case Lang.TE:
         await SpeakService.speak(TeluguSound.press_one_for_special_user);
-        if (!selected) {
+        if (!selected && Get.currentRoute == Pages.WELCOME_SCREEN) {
           await SpeakService.speak(TeluguSound.press_two_for_normal_user);
         }
         break;
       case Lang.BN:
         await SpeakService.speak(BengaliSounds.press_one_for_special_user);
-        if (!selected) {
+        if (!selected && Get.currentRoute == Pages.WELCOME_SCREEN) {
           await SpeakService.speak(BengaliSounds.press_two_for_normal_user);
         }
         break;

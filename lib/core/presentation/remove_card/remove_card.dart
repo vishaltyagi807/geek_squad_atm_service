@@ -42,6 +42,7 @@ class _RemoveCardState extends State<RemoveCard> {
   }
 
   void cardRemoved() async {
+    await Future.delayed(Duration(seconds: 2));
     switch (CurrentLanguage.currentLang) {
       case Lang.EN:
         await SpeakService.speak(

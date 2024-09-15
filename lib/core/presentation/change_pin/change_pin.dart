@@ -299,6 +299,19 @@ class _ChangePinState extends State<ChangePin> {
     setState(() {});
   }
 
+  void reenterNewPin() async {
+    if (CurrentLanguage.currentLang == Lang.EN) {
+      await SpeakService.speak(EnglishSound.you_entered_wrong_pin_en);
+    } else if (CurrentLanguage.currentLang == Lang.HI) {
+      await SpeakService.speak(HindiSound.you_entered_wrong_pin_hi);
+    } else if (CurrentLanguage.currentLang == Lang.BN) {
+      await SpeakService.speak(BengaliSounds.you_entered_wrong_pin_bn);
+    } else {
+      await SpeakService.speak(TeluguSound.you_entered_wrong_pin_te);
+    }
+    init();
+  }
+
   void navigate() async {
     if (!SpeakService.isPlaying) {
       if (!isOldPinEntered) {
@@ -338,12 +351,14 @@ class _ChangePinState extends State<ChangePin> {
       }
       if (isNewConfirmPinEntered) {
         if (newPin != newConfirmPin) {
+          oldPin = "";
           newPin = "";
           newConfirmPin = "";
+          isOldPinEntered = false;
           isNewPinEntered = false;
           isNewConfirmPinEntered = false;
-          init();
           setState(() {});
+          reenterNewPin();
           return;
         }
         switch (CurrentLanguage.currentLang) {
@@ -482,7 +497,7 @@ class _ChangePinState extends State<ChangePin> {
                                 minimumSize: const Size(250, 65),
                               ),
                               child: Text(
-                                oldPin,
+                                "*" * oldPin.length,
                                 style: Get.textTheme.headlineLarge?.copyWith(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
@@ -530,7 +545,7 @@ class _ChangePinState extends State<ChangePin> {
                                     minimumSize: const Size(250, 65),
                                   ),
                                   child: Text(
-                                    newPin,
+                                    "*" * newPin.length,
                                     style:
                                         Get.textTheme.headlineLarge?.copyWith(
                                       color: Colors.white,
@@ -573,7 +588,7 @@ class _ChangePinState extends State<ChangePin> {
                                     minimumSize: const Size(250, 65),
                                   ),
                                   child: Text(
-                                    newConfirmPin,
+                                    "*" * newConfirmPin.length,
                                     style:
                                         Get.textTheme.headlineLarge?.copyWith(
                                       color: Colors.white,

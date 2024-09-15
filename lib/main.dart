@@ -15,6 +15,7 @@ void main() async {
     fullScreen: true,
     backgroundColor: Colors.transparent,
     skipTaskbar: false,
+    alwaysOnTop: true,
     titleBarStyle: TitleBarStyle.hidden,
   );
   windowManager.waitUntilReadyToShow(windowOptions, () async {
