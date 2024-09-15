@@ -56,6 +56,10 @@ class SpeakService {
         languageNamingSystem: LanguageNamingSystem.semiNative,
       );
       final nums = words.split(" ");
+      nums.removeWhere((e) => e == " " || e == "");
+      if (!nums.contains("rupees")) {
+        nums.add("rupees");
+      }
       await _speakSequence(nums, CurrentLanguage.currentLang);
     } catch (e) {
       debugPrint(e.toString());
@@ -95,6 +99,7 @@ class SpeakService {
       }
       await Future.delayed(item);
     }
+    await Future.delayed(Duration(milliseconds: 2300));
   }
 
   static Future<void> reset() async {
