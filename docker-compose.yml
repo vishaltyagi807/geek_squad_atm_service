@@ -1,0 +1,16 @@
+name: "Geek Squad - ATM Service"
+services:
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: qeek-squad
+      MONGO_INITDB_ROOT_PASSWORD: qeek_squad_service_807
+
+  server:
+    image: vishaltyagi807/local-atm-server
+    restart: always
+    ports:
+      - 8080:8080
+    environment:
+      MONGO_DB_URL: mongodb://qeek-squad:qeek_squad_service_807@mongo:27017/
