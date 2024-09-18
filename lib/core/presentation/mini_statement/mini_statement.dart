@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:geek_squad_atm_service/api/Api.dart';
 import 'package:geek_squad_atm_service/api/current_lang.dart';
 import 'package:geek_squad_atm_service/api/service.dart';
 import 'package:geek_squad_atm_service/core/routes/pages.dart';
@@ -19,6 +20,7 @@ class _MiniStatementState extends State<MiniStatement> {
   @override
   void initState() {
     super.initState();
+    init();
     switch (CurrentLanguage.currentLang) {
       case Lang.EN:
         SpeakService.speak(
@@ -35,6 +37,10 @@ class _MiniStatementState extends State<MiniStatement> {
             BengaliSounds.press_cancel_to_go_back_to_main_menu_bn);
         break;
     }
+  }
+
+  void init() async {
+    final list = await Get.find<Api>().getMiniStatement();
   }
 
   @override

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:geek_squad_atm_service/api/card_service.dart';
 import 'package:geek_squad_atm_service/api/current_lang.dart';
 import 'package:geek_squad_atm_service/api/service.dart';
 import 'package:geek_squad_atm_service/core/routes/pages.dart';
@@ -20,6 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
     CurrentLanguage.currentLang = Lang.EN;
     _focusNode.requestFocus();
     SpeakService.reset();
+    CardService.currentCard = null;
   }
 
   final _focusNode = FocusNode();

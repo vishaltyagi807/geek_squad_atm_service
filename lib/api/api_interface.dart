@@ -1,3 +1,4 @@
+import 'package:geek_squad_atm_service/api/models/card.dart';
 import 'package:geek_squad_atm_service/api/models/mini_statement.dart';
 
 abstract class ApiInterface {
@@ -8,4 +9,7 @@ abstract class ApiInterface {
   Future<bool> withdrawAmount({required int amount});
 
   Future<List<MiniStatement>> getMiniStatement();
+
+  Future<bool> insertCard({CardDetails? card});
+
 }

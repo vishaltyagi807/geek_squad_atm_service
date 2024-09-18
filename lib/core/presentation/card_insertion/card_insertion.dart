@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:geek_squad_atm_service/api/Api.dart';
+import 'package:geek_squad_atm_service/api/card_service.dart';
 import 'package:geek_squad_atm_service/api/current_lang.dart';
 import 'package:geek_squad_atm_service/api/service.dart';
 import 'package:geek_squad_atm_service/core/routes/pages.dart';
@@ -59,7 +61,6 @@ class _CardInsertionState extends State<CardInsertion> {
   }
 
   void navigate() async {
-    await Future.delayed(Duration(seconds: 1));
     Get.toNamed(Pages.WELCOME_SCREEN);
   }
 
@@ -70,6 +71,7 @@ class _CardInsertionState extends State<CardInsertion> {
         LogicalKeyboardKey.enter: () async {
           if (selected) return;
           selected = true;
+          await Get.find<Api>().insertCard();
           switch (CurrentLanguage.currentLang) {
             case Lang.EN:
               await SpeakService.speak(
