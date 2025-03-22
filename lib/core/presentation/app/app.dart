@@ -44,7 +44,7 @@ class _AppState extends State<App> {
 
   final _focusNode = FocusNode();
 
-  void _handleKeyDown(RawKeyEvent event) {
+  void _handleKeyDown(KeyEvent event) {
     if (_longPressTimer == null) {
       _longPressTimer = Timer(_longPressDuration, () {
         Get.offAllNamed(Pages.SPLASH_SCREEN);
@@ -54,7 +54,7 @@ class _AppState extends State<App> {
     }
   }
 
-  void _handleKeyUp(RawKeyEvent event) {
+  void _handleKeyUp(KeyEvent event) {
     _cancelLongPress();
   }
 
@@ -67,14 +67,14 @@ class _AppState extends State<App> {
 
   @override
   Widget build(BuildContext context) {
-    return RawKeyboardListener(
+    return KeyboardListener(
       autofocus: true,
       focusNode: _focusNode,
-      onKey: (event) {
-        if (event is RawKeyDownEvent &&
+      onKeyEvent: (event) {
+        if (event is KeyDownEvent &&
             event.logicalKey == LogicalKeyboardKey.escape) {
           _handleKeyDown(event);
-        } else if (event is RawKeyUpEvent &&
+        } else if (event is KeyUpEvent &&
             event.logicalKey == LogicalKeyboardKey.escape) {
           _handleKeyUp(event);
         }
@@ -91,7 +91,7 @@ class _AppState extends State<App> {
           ),
           debugShowCheckedModeBanner: false,
           getPages: Routes.routes,
-          initialRoute: Pages.SPLASH_SCREEN,
+          initialRoute: "/testing",
         ),
       ),
     );
