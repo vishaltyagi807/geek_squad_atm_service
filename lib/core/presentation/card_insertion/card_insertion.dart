@@ -67,6 +67,9 @@ class _CardInsertionState extends State<CardInsertion> {
   Widget build(BuildContext context) {
     return SynchronizedKeyboardListener(
       keyEvents: {
+        LogicalKeyboardKey(0x50898): () {
+          print("Clicked");
+        },
         LogicalKeyboardKey.enter: () async {
           if (selected) return;
           selected = true;

@@ -14,6 +14,7 @@ import 'package:geek_squad_atm_service/core/presentation/splash_screen/splash_sc
 import 'package:geek_squad_atm_service/core/presentation/thank_you/thank_you.dart';
 import 'package:geek_squad_atm_service/core/presentation/transaction_pending/transaction_pending.dart';
 import 'package:geek_squad_atm_service/core/presentation/welcome/welcome.dart';
+import 'package:geek_squad_atm_service/core/testing/testing_page.dart';
 import 'package:get/get.dart';
 
 import 'pages.dart';
@@ -24,6 +25,7 @@ class Routes {
   static final GlobalKey<NavigatorState> navigator = GlobalKey();
 
   static final routes = [
+    GetPage(name: "/testing", page: () => TestingPage()),
     GetPage(name: Pages.SPLASH_SCREEN, page: () => const SplashScreen()),
     GetPage(name: Pages.SELECT_LANG_SCREEN, page: () => const SelectLang()),
     GetPage(
